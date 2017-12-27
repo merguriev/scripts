@@ -13,3 +13,4 @@ fi
 mysql -B -N -u$user -p$password -h$host -e "SELECT CONCAT('\'', user,'\'@\'', host, '\'') FROM user WHERE user != 'root' AND user != ''" mysql > mysql_all_users
 while read line; do mysql -B -N -u$user -p$password -h$host -e "SHOW GRANTS FOR $line"; done < mysql_all_users > mysql_all_users_sql.sql
 sed -i 's/$/;/' mysql_all_users_sql.sql
+echo "Created file: mysql_all_users_sql.sql"
