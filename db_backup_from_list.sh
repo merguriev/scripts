@@ -5,7 +5,7 @@ read password
 cd db_backup
 for db in $(cat dbs)
 do
- echo "Bachup database: $db" 
+ echo "Backup database: $db" 
 mysqldump -uroot -p$password $db > "$db.sql"
 done
 
